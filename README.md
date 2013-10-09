@@ -8,7 +8,7 @@ Base code for Spring MVC and Redis implementation.
 * Jedis `v2.1`
 * JEE `v7.0`
 
-## Usage
+### Usage
 Modify **pom.xml**
 ```xml
 <groupId>com.blumoon</groupId>
@@ -35,7 +35,7 @@ redis.host = 127.0.0.1
 redis.port = 6379
 ```
 
-**IMPORTANT**
+####IMPORTANT
 
 `log4j` is set on debug logging mode
 
@@ -43,7 +43,7 @@ Upon build, copy all jars from `/target/app-name/WEB-INF/lib` to your tomcat `/l
 
 
 
-## Packaging
+### Scaffolding
 **com.blumoon.app-name.domain** - encapsulation (setter-getters)
 
 **com.blumoon.app-name.keys** - redis keys (strings, sets, sortedsets, lists, hashes)
