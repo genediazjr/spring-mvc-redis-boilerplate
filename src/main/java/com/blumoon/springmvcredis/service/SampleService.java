@@ -41,10 +41,11 @@ public class SampleService {
         if (1 == template.opsForSet().add(SetKeys.SAMPLE, sampleId)) {
 
             // set next object if id was added
-            boolean result = template.opsForValue().setIfAbsent(StringKeys.SAMPLE.concat(KeysUtil.DELIMITER).concat(sampleId), sample);
+            boolean result = template.opsForValue().setIfAbsent(keysUtil.build(StringKeys.SAMPLE, sampleId), sample);
 
             LOG.debug(new StringBuilder("SampleId: ")
-                    .append(sample)
+                    .append(sampleId).append(" Value: ")
+                    .append(sample).append(" Result: ")
                     .append(result));
         }
 
