@@ -24,47 +24,14 @@ public class KeysUtil {
     }
 
     /**
-     * @param key
-     * @param param
-     * @return no dash UUID
+     * @param paramString
+     * @return key or value
      */
-    public String buildKey(String key, String param) {
-        return new StringBuilder(key).append(param).toString();
-    }
-
-    /**
-     * @param value1
-     * @param value2
-     * @return no dash UUID
-     */
-    public String buildValue(String value1, String value2) {
-        return new StringBuilder(value1).append(DELIMITER)
-                .append(value2).toString();
-    }
-
-    /**
-     * @param value1
-     * @param value2
-     * @param value3
-     * @return no dash UUID
-     */
-    public String buildValue(String value1, String value2, String value3) {
-        return new StringBuilder(value1).append(DELIMITER)
-                .append(value2).append(DELIMITER)
-                .append(value3).toString();
-    }
-
-    /**
-     * @param value1
-     * @param value2
-     * @param value3
-     * @param value4
-     * @return no dash UUID
-     */
-    public String buildValue(String value1, String value2, String value3, String value4) {
-        return new StringBuilder(value1).append(DELIMITER)
-                .append(value2).append(DELIMITER)
-                .append(value3).append(DELIMITER)
-                .append(value4).toString();
+    public String build(String... paramString) {
+        StringBuilder sb = new StringBuilder();
+        for (String s : paramString) {
+            sb.append(s).append(DELIMITER);
+        }
+        return sb.toString().replaceAll(DELIMITER.concat("$"), "");
     }
 }
